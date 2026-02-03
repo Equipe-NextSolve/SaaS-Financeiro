@@ -1,0 +1,9 @@
+.container_Logo {
+    width: 200px;
+}
+.title_Logo {
+    text-decoration: none;
+    color: var(--collor-blue-dark);
+    font-style: italic;
+    font-size: 1.5rem;
+}
