@@ -7,7 +7,7 @@ export default function Navigation({ isOpen, onClose }) {
   const dt_links = [
     {
       label: "Serviço",
-      href: "/#quem-somos"
+      href: "#about"
     },
     {
       label: "Soluções",

@@ -42,11 +42,7 @@ export default function InitialContent() {
                         <p className={styles.text_Description}>{text.text}</p>
 
                         <div className={styles.container_left}>
-                            <input
-                                className={styles.input_email}
-                                type="email"
-                                placeholder='Informe seu e-mail'
-                            />
+                            
                             <Link href='' className={styles.link_Btn}>{text.link}</Link>
                         </div>
                     </div>
