@@ -1,68 +1,70 @@
-"use client"
-import { useState, useEffect, useCallback, useRef } from 'react'
-import styles from './SideBar.module.css';
-import Link from 'next/link';
-import { Fix } from 'react-icons/fi';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+"use client";
+
+import { useState, useEffect, useCallback, useRef } from "react";
+import styles from "./SideBar.module.css";
+import Link from "next/link";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function SideBar() {
-  useEffect(() => {
-    Aos.init({
-      duration: 700,
-      easing: 'ease-in-out',
-      once: true,
-    })
-  })
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [isOpen, setIsOpen] = useState();
   const sideBarRef = useRef(null);
-  const ButtonRef = useRef(null);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const buttonRef = useRef(null);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
   useEffect(() => {
-    const handleClickOutSide = (e) => {
+    Aos.init({
+      duration: 700,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
       if (
         isOpen &&
         sideBarRef.current &&
         !sideBarRef.current.contains(e.target) &&
-        ButtonRef.current &&
-        !ButtonRef.current.contains(e.target)
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target)
       ) {
-        closeMenu()
+        closeMenu();
       }
-    }
-    document.addEventListener("mousedown", handleClickOutSide)
-    return () => document.removeEventListener("mousedown", handleClickOutSide)
-  }, [isOpen, setIsOpen])
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, closeMenu]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+
     return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, []);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const dt_links = [
-    { label: 'Serviço', href: '' },
-    { label: 'Soluções', href: '' },
-    { label: 'Base', href: '' },
-    { label: 'Valores', href: '' },
-    { label: 'Contato', href: '' },
-  ]
+    { label: "Serviço", href: "" },
+    { label: "Soluções", href: "" },
+    { label: "Base", href: "" },
+    { label: "Valores", href: "" },
+    { label: "Contato", href: "" },
+  ];
 
   return (
     <section className={styles.sideBar}>
       <button
-        className={`${styles.Menu} ${isOpen ? styles.Active : ''}`}
-        ref={ButtonRef}
+        className={`${styles.Menu} ${isOpen ? styles.Active : ""}`}
+        ref={buttonRef}
         onClick={toggleMenu}
-        aria-label='Abrir Menu'
+        aria-label="Abrir menu"
+        aria-expanded={isOpen}
       >
         <span className={styles.menuLine}></span>
         <span className={styles.menuLine}></span>
@@ -70,31 +72,31 @@ export default function SideBar() {
       </button>
 
       <div
-        className={`${styles.Overlay} ${isOpen ? styles.overlayActive : ''}`}
+        className={`${styles.Overlay} ${isOpen ? styles.overlayActive : ""
+          }`}
         onClick={closeMenu}
-        aria-hidden='true'
       >
         <aside
-          className={`${styles.containerSideBar} ${isOpen ? styles.openBox : ''}`}
+          className={`${styles.containerSideBar} ${isOpen ? styles.openBox : ""
+            }`}
           ref={sideBarRef}
-          aria-label='Menu Lateral'
+          aria-label="Menu lateral"
+          onClick={(e) => e.stopPropagation()}
         >
-          <div className={styles.containerNav}>
-            <nav className={styles.Navigation}>
-              {dt_links.map((link, index) => {
-                <Link
-                  key={index}
-                  className={styles.navLink}
-                  href={link.href}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              })}
-            </nav>
-          </div>
+          <nav className={styles.Navigation}>
+            {dt_links.map((link, index) => (
+              <Link
+                key={index}
+                className={styles.navLink}
+                href={link.href}
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </aside>
       </div>
     </section>
-  )
+  );
 }

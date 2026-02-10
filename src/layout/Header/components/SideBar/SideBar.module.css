@@ -1,47 +1,61 @@
-.sideBar {
+.sectionSideBar {
     position: relative;
 }
 
 .Menu {
     position: fixed;
-    top: 0.6rem;
+    top: 0.8rem;
     right: 1.7rem;
     z-index: 1001;
     width: 2rem;
     height: 2rem;
-    background: rgba(243, 243, 243, 0.945);
+    background: rgba(13, 13, 13, 0.8);
     backdrop-filter: blur(10px);
-    border: none;
-    border-radius: 9px;
+    border: 1px solid rgba(4, 138, 221, 0.3);
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 0.35rem;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+}
 
-    &.Menu:hover {
-        background-color: rgba(13, 13, 13, 0.95);
-        background-color: var(--collor-blue);
-        transform: scale(1.01);
-    }
+.Menu:hover {
+    background: rgba(13, 13, 13, 0.95);
+    border-color: #048add;
+    transform: scale(1.05);
+}
 
-    .menuLine {
-        width: 1rem;
-        height: 2px;
-        border-radius: 5px;
-        background-color: var(--collor-primary-black);
-    }
+.Menu span {
+    width: 1rem;
+    height: 1px;
+    background: #fdfdfd;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.Active span:nth-child(1) {
+    transform: translateY(0.55rem) rotate(45deg);
+}
+
+.Active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.Active span:nth-child(3) {
+    transform: translateY(-0.55rem) rotate(-45deg);
 }
 
 .Overlay {
     position: fixed;
-    top: 0%;
-    left: 0%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(13, 13, 13, 0.7);
+    background: rgba(4, 56, 89, 0.5);
     backdrop-filter: blur(4px);
     opacity: 0;
     visibility: hidden;
@@ -49,8 +63,82 @@
     z-index: 999;
 }
 
-
 .overlayActive {
     opacity: 1;
     visibility: visible;
+}
+
+.containerSideBar {
+    position: fixed;
+    top: 0;
+    right: -50%;
+    width: min(300px, 85vw);
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #363636 100%);
+    border-left: 1px solid rgba(4, 138, 221, 0.2);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.openBox {
+    right: 0;
+}
+
+.sidebarHeader::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1.5rem;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #048add, #043859);
+    border-radius: 2px;
+}
+
+.sidebarTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #fdfdfd, #048add);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.Navigation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 0.5rem;
+}
+
+.navLink {
+    position: relative;
+    padding: 1rem 1.5rem;
+    color: rgba(253, 253, 253, 0.65);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .Menu {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .containerSideBar {
+        width: 85vw;
+    }
+
+    .navLink {
+        font-size: 1rem;
+    }
 }
