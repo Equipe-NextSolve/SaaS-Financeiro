@@ -14,7 +14,7 @@ export default function Range() {
                 <FaStar className={styles.icon_Star}/>
             </div>
             <div className={styles.content_Description}>
-                <h1 className={styles.title_Range}>+10.000 usuários já administram suas finanças com o Gestory</h1>
+                <h1 className={styles.title_Range}>Sistema empresarial dedicado a facilitar e otimizar as atividades da sua empresa</h1>
             </div>
         </section>
     )

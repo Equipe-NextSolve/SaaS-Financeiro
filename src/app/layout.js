@@ -2,7 +2,7 @@ import "./globals.css";
 import Header from "@/layout/Header/Header";
 
 export const metadata = {
-  title: "SaaS Financeira - NextSolve",
+  title: "Korivo - Sistema Empresarial",
   description: "Sistema de Gerenciamento e Organização Empresarial",
 };
 

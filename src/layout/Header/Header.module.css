@@ -7,23 +7,19 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     height: 55px;
     display: flex;
+}
 
-    .scrollled_Header {
-        background-color: beige;
-
+    .content_Header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 14px 10%;
+        overflow: hidden;
     }
-}
 
-.content_Header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 4%;
-}
-
-.division_Content {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    width: 100%;
-}
+    .division_Content {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+    }

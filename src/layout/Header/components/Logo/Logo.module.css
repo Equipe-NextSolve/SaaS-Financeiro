@@ -1,17 +1,13 @@
 .container_Logo {
     width: 200px;
-    height: 80px;
+    height: 90px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    user-select: none;
 
     .ImageLogo {
         width: 100%;
+        user-select: none;
     }
-}
-
-.title_Logo {
-    text-decoration: none;
-    color: var(--collor-blue-dark);
-    font-style: italic;
-    font-size: 1.5rem;
 }
