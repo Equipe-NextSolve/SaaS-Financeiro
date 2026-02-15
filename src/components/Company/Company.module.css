@@ -1,6 +1,6 @@
 .Company {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
     padding: 80px 20px;
     background: linear-gradient(135deg, var(--collor-blue-dark) 0%, var(--collor-blue) 100%);
     overflow: hidden;

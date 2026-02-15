@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "@/layout/Header/Header";
+import Footer from "@/layout/Footer/Footer";
 
 export const metadata = {
   title: "Korivo - Sistema Empresarial",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={''}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

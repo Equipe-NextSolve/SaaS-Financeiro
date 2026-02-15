@@ -1,0 +1,253 @@
+.Footer {
+    width: 100%;
+    background: var(--collor-primary-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.Footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--collor-blue) 50%,
+            transparent 100%);
+}
+
+.divisionContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 20px 60px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--collor-white);
+    margin: 0;
+    background: var(--collor-grandient-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--collor-gray);
+    margin: 0;
+    max-width: 300px;
+}
+
+.titleColumn {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--collor-white);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.titleColumn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--collor-blue);
+    border-radius: 2px;
+}
+
+.list,
+.listSocial {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.link {
+    color: var(--collor-gray);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--collor-blue);
+    transition: width 0.3s ease;
+}
+
+.link:hover {
+    color: var(--collor-white);
+    transform: translateX(4px);
+}
+
+.link:hover::before {
+    width: 100%;
+}
+
+.listSocial {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(140, 140, 140, 0.1);
+    border: 1px solid rgba(140, 140, 140, 0.2);
+    border-radius: 10px;
+    color: var(--collor-gray);
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.socialLink span {
+    display: none;
+}
+
+.socialLink::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--collor-grandient-blue);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.socialLink:hover {
+    color: var(--collor-white);
+    border-color: var(--collor-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(4, 138, 221, 0.3);
+}
+
+.socialLink:hover::before {
+    opacity: 1;
+}
+
+.bottomFooter {
+    border-top: 1px solid rgba(140, 140, 140, 0.15);
+    padding: 32px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.titlebttmF {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--collor-blue);
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.textbttmF {
+    font-size: 0.8125rem;
+    color: var(--collor-gray);
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .divisionContent {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 60px 20px 50px;
+    }
+
+    .column:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .divisionContent {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 20px 40px;
+    }
+
+    .column:first-child {
+        grid-column: 1;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+
+    .listSocial {
+        gap: 10px;
+    }
+
+    .socialLink {
+        width: 40px;
+        height: 40px;
+        font-size: 1.125rem;
+    }
+
+    .bottomFooter {
+        padding: 24px 20px;
+        gap: 8px;
+    }
+
+    .textbttmF {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    .titleColumn {
+        font-size: 0.9375rem;
+    }
+
+    .link {
+        font-size: 0.875rem;
+    }
+}

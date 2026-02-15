@@ -1,8 +1,9 @@
 .ReviewsContainer {
     width: 100%;
     max-width: 1400px;
+    height: 110vh;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 90px 20px;
     background: var(--collor-white);
 }
 
@@ -123,10 +124,10 @@
     opacity: 0.85;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .ReviewsContainer {
         padding: 60px 16px;
+        height: auto;
     }
 
     .boxTitle {
@@ -156,6 +157,7 @@
 
 @media (max-width: 480px) {
     .boxStar {
+        height: auto;
         font-size: 20px;
     }
 
