@@ -3,6 +3,7 @@
     background: var(--collor-primary-black);
     position: relative;
     overflow: hidden;
+    user-select: none;
 }
 
 .Footer::before {

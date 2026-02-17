@@ -1,6 +1,6 @@
 .ArticlePolitics {
     width: 100%;
-    max-width: 1200px;
+    user-select: none;
     margin: 0 auto;
     padding: 80px 24px;
     display: flex;
@@ -45,12 +45,6 @@
     color: var(--collor-gray);
     margin: 0;
     white-space: pre-line;
-}
-
-.boxText+.boxText {
-    padding-top: 64px;
-    border-top: 1px solid rgba(140, 140, 140, 0.15);
-    margin-top: -64px;
 }
 
 @media (max-width: 768px) {

@@ -1,8 +1,18 @@
 "use client"
-import React from 'react'
+import {useEffect} from 'react'
 import styles from './ArticlePolitics.module.css'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 export default function ArticlePolitics() {
+    useEffect(() => {
+        Aos.init({
+            duration: 700,
+            easing: 'ease-in-out',
+            once: true,
+        })
+    })
+
     const dt_text = [
         {
             title: 'Quem Somos?',
@@ -42,8 +52,16 @@ export default function ArticlePolitics() {
         <article className={styles.ArticlePolitics}>
             {dt_text.map((item, index) => (
                 <div key={index} className={styles.boxText}>
-                    <h1 className={styles.titleArticle}>{item.title}</h1>
-                    <p className={styles.descriptionArticle}>{item.text}</p>
+                    <h1
+                        className={styles.titleArticle}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >{item.title}</h1>
+                    <p
+                        className={styles.descriptionArticle}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >{item.text}</p>
                 </div>
             ))}
         </article>

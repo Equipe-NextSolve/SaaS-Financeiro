@@ -4,6 +4,7 @@ import styles from './Carousel.module.css'
 import Image from 'next/image'
 
 export default function Carousel() {
+
     const [imageSrc, setImageSrc] = useState('/politicSS.png')
 
     useEffect(() => {
