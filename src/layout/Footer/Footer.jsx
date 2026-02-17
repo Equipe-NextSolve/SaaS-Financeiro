@@ -17,7 +17,7 @@ export default function Footer() {
 
     const linkKorivo = [
         { name: 'Corporativo', href: '' },
-        { name: 'Politica de Privacidade', href: '' },
+        { name: 'Politica de Privacidade', href: '/Politics' },
         { name: 'Contato / Suporte', href: '' },
         { name: 'Grupo Whatsapp', href: '' },
     ]

@@ -1,0 +1,12 @@
+.Politics {
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+
+.divisionContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
