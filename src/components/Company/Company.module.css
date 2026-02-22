@@ -179,7 +179,6 @@
         padding: 60px 20px;
         display: flex;
         align-items: center;
-        flex-direction: column;
         width: 100%;
     }
 
@@ -187,7 +186,8 @@
         gap: 40px;
         display: flex;
         align-items: center;
-        flex-direction: column;
+        flex-direction: column-reverse;
+        padding-bottom: 20px;
         width: 100%;
     }
 
@@ -212,13 +212,21 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
     .Company {
         width: 100%;
         padding: 50px 15px;
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    .CompanyAbout {
+        gap: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        width: 100%;
     }
 
     .titleCompany {
