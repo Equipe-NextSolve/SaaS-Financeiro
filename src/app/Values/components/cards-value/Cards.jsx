@@ -62,7 +62,7 @@ export default function Cards() {
     ]
 
     return (
-        <section className={styles.sectionValues}>
+        <section className={styles.sectionCards}>
             <div className={styles.contentCards}>
                 {dt_cards.map((item) => (
                     <div

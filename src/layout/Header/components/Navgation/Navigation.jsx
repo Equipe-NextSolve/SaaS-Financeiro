@@ -18,7 +18,7 @@ export default function Navigation({ isOpen, onClose }) {
     },
     {
       label: "Valores",
-      href: "/#quem-somos"
+      href: "/Values"
     },
     {
       label: "Suporte",
