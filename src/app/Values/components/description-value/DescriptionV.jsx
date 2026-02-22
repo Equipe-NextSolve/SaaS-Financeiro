@@ -18,7 +18,7 @@ export default function DescriptionV() {
         {
             id: 1,
             title: 'Gostou do que viu em nossa página? Então escolha um dos nossos planos e proporcione à sua empresa uma experiência completa e eficiente de gestão.',
-            description: 'Se você deseja testar nossa plataforma antes de decidir, disponibilizamos gratuitamente o plano intermediário por 30 dias. Assim, você poderá conhecer o sistema na prática e escolher com segurança o plano ideal para a sua empresa.',
+            description: 'Se você deseja testar nossa plataforma antes de decidir, disponibilizamos gratuitamente o plano intermediário por 30 dias. Assim, você poderá conhecer o sistema na prática e escolher com segurança o plano ideal para a sua empresa.',          
         }
     ]
 

@@ -53,7 +53,7 @@ export default function SideBar() {
     { label: "Serviço", href: "" },
     { label: "Soluções", href: "" },
     { label: "Base", href: "" },
-    { label: "Valores", href: "" },
+    { label: "Valores", href: "/Values" },
     { label: "Contato", href: "" },
   ];
 
