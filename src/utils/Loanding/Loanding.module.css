@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbdbdbdc;
+    height: 100vh;
+}
+
+.loandingIcon {
+    animation: rotate 1s linear infinite;
+    font-size: 3rem;
+    color: #161414;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
