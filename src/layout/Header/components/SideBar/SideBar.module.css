@@ -1,143 +1,171 @@
-.sectionSideBar {
+/* ── Wrapper ── */
+.sideBar {
     position: relative;
+    z-index: 1000;
 }
 
-.Menu {
-    position: fixed;
-    top: 0.4rem;
-    right: 1.6rem;
-    z-index: 1001;
-    width: 2rem;
-    height: 2rem;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(4, 138, 221, 0.3);
-    border-radius: 8px;
-    cursor: pointer;
+/* ── Hamburger button ── */
+.menuButton {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 0.35rem;
-    transition: all 0.3s ease;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
 }
 
-.Menu:hover {
-    background: rgba(11, 146, 224, 0.95);
-    transform: scale(1.05);
+.menuButton:hover {
+    background: rgba(4, 138, 221, 0.08);
 }
 
-.menuLine {
-    width: 1rem;
+.menuButton span {
+    display: block;
     height: 2px;
-    background: #000000;
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    background: var(--collor-primary-black);
+    border-radius: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
 }
 
-.Active .menuLine:nth-child(1) {
-    transform: translateY(0.55rem) rotate(45deg);
+.menuButton span:nth-child(1) {
+    width: 22px;
 }
 
-.Active .menuLine:nth-child(2) {
+.menuButton span:nth-child(2) {
+    width: 16px;
+}
+
+.menuButton span:nth-child(3) {
+    width: 22px;
+}
+
+/* Animate to X */
+.menuButton.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    width: 22px;
+}
+
+.menuButton.active span:nth-child(2) {
     opacity: 0;
-    transform: translateX(20px);
+    transform: scaleX(0);
 }
 
-.Active .menuLine:nth-child(3) {
-    transform: translateY(-0.55rem) rotate(-45deg);
+.menuButton.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    width: 22px;
 }
 
-.Overlay {
+/* ── Overlay ── */
+.overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(4, 56, 89, 0.5);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    inset: 0;
+    background: rgba(13, 13, 13, 0);
+    backdrop-filter: blur(0px);
+    pointer-events: none;
+    transition: background 0.35s ease, backdrop-filter 0.35s ease;
     z-index: 999;
 }
 
 .overlayActive {
-    opacity: 1;
-    visibility: visible;
+    background: rgba(13, 13, 13, 0.25);
+    backdrop-filter: blur(4px);
+    pointer-events: all;
 }
 
+/* ── Sidebar panel ── */
 .containerSideBar {
     position: fixed;
     top: 0;
-    right: -30%;
-    width: min(200px, 85vw);
-    height: 100vh;
-    background: var(--collor-grandient-blue);
-    border-left: 1px solid rgba(151, 151, 151, 0.2);
-    box-shadow: -10px 0 40px rgba(155, 152, 152, 0.5);
-    z-index: 1000;
+    right: 0;
+    height: 100dvh;
+    width: 300px;
+    background: var(--collor-white);
+    box-shadow: -8px 0 40px rgba(13, 13, 13, 0.1);
     display: flex;
     flex-direction: column;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border-left: 1px solid rgba(4, 138, 221, 0.1);
 }
 
 .openBox {
-    right: 0;
+    transform: translateX(0);
 }
 
-.sidebarHeader::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 1.5rem;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, #048add, #043859);
-    border-radius: 2px;
+/* ── Header ── */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    border-bottom: 1px solid #f0f4f8;
 }
 
-.sidebarTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    background: linear-gradient(135deg, #fdfdfd, #048add);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--collor-gray);
 }
 
-.Navigation {
+.closeIcon {
+    font-size: 16px;
+    color: var(--collor-gray);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.closeIcon:hover {
+    color: var(--collor-primary-black);
+    background: #f0f4f8;
+}
+
+/* ── Navigation ── */
+.navigation {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 5rem 0;
-    gap: 0.5rem;
+    padding: 16px 16px;
+    gap: 2px;
+    overflow-y: auto;
 }
 
 .navLink {
-    position: relative;
-    padding: 1rem 1.5rem;
-    color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--collor-primary-black);
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    overflow: hidden;
+    transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
 }
 
-@media (max-width: 768px) {
-    .Menu {
-        top: 1rem;
-        right: 1rem;
-    }
+.navLink:hover {
+    background: rgba(4, 138, 221, 0.07);
+    color: var(--collor-blue);
+    padding-left: 22px;
+}
 
-    .containerSideBar {
-        width: 85vw;
-    }
+.footer {
+    padding: 20px 28px;
+    border-top: 1px solid #f0f4f8;
+}
 
-    .navLink {
-        font-size: 1rem;
-    }
+.footer span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--collor-blue);
+    letter-spacing: 0.03em;
 }

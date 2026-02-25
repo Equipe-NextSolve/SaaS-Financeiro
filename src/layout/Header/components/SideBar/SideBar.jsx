@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./SideBar.module.css";
 import Link from "next/link";
+import { FaTimes } from "react-icons/fa";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -17,7 +18,7 @@ export default function SideBar() {
 
   useEffect(() => {
     Aos.init({
-      duration: 700,
+      duration: 600,
       easing: "ease-in-out",
       once: true,
     });
@@ -43,37 +44,49 @@ export default function SideBar() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
-
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
   const dt_links = [
-    { label: "Serviço", href: "" },
-    { label: "Soluções", href: "" },
-    { label: "Base", href: "" },
-    { label: "Valores", href: "/Values" },
-    { label: "Contato", href: "" },
+     {
+      label: "Serviço",
+      href: "/#about"
+    },
+    {
+      label: "Soluções",
+      href: "/#solutions",
+    },
+    {
+      label: "Dashboards",
+      href: "/#dashboard",
+    },
+    {
+      label: "Valores",
+      href: "/Values"
+    },
+    {
+      label: "Suporte",
+      href: "/#quem-somos"
+    },  
   ];
 
   return (
     <section className={styles.sideBar}>
       <button
-        className={`${styles.Menu} ${isOpen ? styles.Active : ""}`}
+        className={`${styles.menuButton} ${isOpen ? styles.active : ""}`}
         ref={buttonRef}
         onClick={toggleMenu}
         aria-label="Abrir menu"
         aria-expanded={isOpen}
       >
-        <span className={styles.menuLine}></span>
-        <span className={styles.menuLine}></span>
-        <span className={styles.menuLine}></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-
       <div
-        className={`${styles.Overlay} ${isOpen ? styles.overlayActive : ""
-          }`}
+        className={`${styles.overlay} ${isOpen ? styles.overlayActive : ""}`}
         onClick={closeMenu}
       >
         <aside
@@ -83,7 +96,12 @@ export default function SideBar() {
           aria-label="Menu lateral"
           onClick={(e) => e.stopPropagation()}
         >
-          <nav className={styles.Navigation}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>Menu de Navegação</h2>
+            <FaTimes className={styles.closeIcon} onClick={closeMenu} />
+          </div>
+
+          <nav className={styles.navigation}>
             {dt_links.map((link, index) => (
               <Link
                 key={index}
@@ -95,6 +113,10 @@ export default function SideBar() {
               </Link>
             ))}
           </nav>
+
+          <div className={styles.footer}>
+            <span>Korivo Sistema</span>
+          </div>
         </aside>
       </div>
     </section>
