@@ -1,3 +1,4 @@
+"use client"
 import { useEffect } from 'react'
 import styles from './FreeTrial.module.css'
 import Link from 'next/link'

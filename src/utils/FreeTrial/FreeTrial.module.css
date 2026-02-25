@@ -1,9 +1,12 @@
 .FreeTrial {
     width: 100%;
+    max-width: 1290px;
+    height: 80vh;
     padding: 100px 24px;
     background: var(--collor-grandient-white);
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .FreeTrial::before {

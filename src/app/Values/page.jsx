@@ -11,8 +11,8 @@ export default function Values() {
         <main className={styles.Values}>
             <section className={styles.divContentValues}>
                 <DescriptionV />
-                <FreeTrial />
                 <Cards />
+                <FreeTrial />
             </section>
         </main>
     )

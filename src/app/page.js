@@ -5,6 +5,7 @@ import About from "@/components/About/About";
 import Company from "@/components/Company/Company";
 import Solution from "@/components/SolutionDash/Solution";
 import Reviews from "@/components/Reviews/Reviews";
+import FreeTrial from "@/utils/FreeTrial/FreeTrial";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Company />
       <Solution />
       <Reviews />
+  
     </div>
   );
 }
