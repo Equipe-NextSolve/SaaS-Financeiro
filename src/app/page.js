@@ -37,6 +37,7 @@ export default function Home() {
       <About />
       <Company />
       <Solution />
+      <FreeTrial/>
       <Reviews />
     </div>
   );
