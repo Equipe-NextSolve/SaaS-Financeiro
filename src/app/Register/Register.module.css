@@ -1,0 +1,51 @@
+.pageRegister {
+    width: 100%;
+    min-width: 1290px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    user-select: none;
+}
+
+.titleRegister {
+    font-size: 3.2rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 90px;
+    position: relative;
+
+    .textAlternativ {
+        font-size: 3.2rem;
+        font-weight: 600;
+        font-style: italic;
+        color: var(--collor-blue);
+    }
+}
+
+.titleRegister::before {
+    content: "";
+    position: absolute;
+    left: 0%;
+    bottom: 15px;
+    width: 190px;
+    height: 2px;
+    background-color: var(--collor-blue);
+    display: block;
+}
+
+.textRegister {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 10px;
+    color: var(--collor-gray);
+}
+
+@media (max-width: 748px) {
+    .pageRegister {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
