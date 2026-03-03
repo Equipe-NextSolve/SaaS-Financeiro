@@ -4,6 +4,7 @@ import styles from './Register.module.css'
 import { BsGraphUpArrow } from "react-icons/bs";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import ResearchField from './ContentField/ResearchField';
 import ContentImage from './ContentImage/Image';
 
 export default function Page() {
@@ -13,7 +14,7 @@ export default function Page() {
             easing: 'ease-in-out',
             once: true
         })
-    },[])
+    }, [])
 
     return (
         <section className={styles.pageRegister}>
@@ -25,8 +26,10 @@ export default function Page() {
                 className={styles.textRegister}
                 data-aos="fade-up"
                 data-aos-delay={100}>Comece agora a usar nosso sistema e leve sua empresa a outro nível. <BsGraphUpArrow className={styles.textRegister} /></p>
+
             <div className={styles.contentPage}>
-                <ContentImage />   
+                <ResearchField />
+                <ContentImage />
             </div>
         </section>
     )
